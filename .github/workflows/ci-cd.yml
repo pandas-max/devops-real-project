@@ -27,8 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r app/requirements.txt
 
-      - name: Check Python syntax
+            - name: Check Python syntax
         run: python -m compileall -q app
+
+      - name: Run automated tests
+        run: python -m pytest -v
 
       - name: Build Docker image
         run: docker build -t devops-flask-app:test .
