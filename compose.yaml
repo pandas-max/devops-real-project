@@ -1,0 +1,12 @@
+
+services:
+  web:
+    build: .
+    image: devops-flask-app:1.0
+    container_name: devops-flask
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+
+
