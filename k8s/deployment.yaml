@@ -1,4 +1,3 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,6 +15,9 @@ spec:
       containers:
         - name: flask-app
           image: ghcr.io/pandas-max/devops-real-project:latest
+          envFrom:
+            - configMapRef:
+                name: devops-flask-config
           ports:
             - containerPort: 5000
           readinessProbe:
@@ -30,4 +32,3 @@ spec:
               port: 5000
             initialDelaySeconds: 10
             periodSeconds: 20
-
